@@ -1,0 +1,16 @@
+/home/wicked/RiderProjects/Adventure/Time/bin/Debug/net5.0/Time
+/home/wicked/RiderProjects/Adventure/Time/bin/Debug/net5.0/Time.deps.json
+/home/wicked/RiderProjects/Adventure/Time/bin/Debug/net5.0/Time.runtimeconfig.json
+/home/wicked/RiderProjects/Adventure/Time/bin/Debug/net5.0/Time.runtimeconfig.dev.json
+/home/wicked/RiderProjects/Adventure/Time/bin/Debug/net5.0/Time.dll
+/home/wicked/RiderProjects/Adventure/Time/bin/Debug/net5.0/ref/Time.dll
+/home/wicked/RiderProjects/Adventure/Time/bin/Debug/net5.0/Time.pdb
+/home/wicked/RiderProjects/Adventure/Time/obj/Debug/net5.0/Time.csproj.AssemblyReference.cache
+/home/wicked/RiderProjects/Adventure/Time/obj/Debug/net5.0/Time.GeneratedMSBuildEditorConfig.editorconfig
+/home/wicked/RiderProjects/Adventure/Time/obj/Debug/net5.0/Time.AssemblyInfoInputs.cache
+/home/wicked/RiderProjects/Adventure/Time/obj/Debug/net5.0/Time.AssemblyInfo.cs
+/home/wicked/RiderProjects/Adventure/Time/obj/Debug/net5.0/Time.csproj.CoreCompileInputs.cache
+/home/wicked/RiderProjects/Adventure/Time/obj/Debug/net5.0/Time.dll
+/home/wicked/RiderProjects/Adventure/Time/obj/Debug/net5.0/ref/Time.dll
+/home/wicked/RiderProjects/Adventure/Time/obj/Debug/net5.0/Time.pdb
+/home/wicked/RiderProjects/Adventure/Time/obj/Debug/net5.0/Time.genruntimeconfig.cache
