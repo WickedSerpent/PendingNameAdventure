@@ -1,36 +1,107 @@
 ﻿using System;
 
+
+/* String (string): a string of characters
+ * Integer (int): a whole number
+ * Boolean (bool): true or false
+ * Double (double): a large number that can include a decimal
+ */
+
 namespace Time
 {
     class Program
     {
+        public static Player currentPlayer = new Player();
+
         static void Main(string[] args)
         {
-            // string MaleMainName = "Main Protagonistson";
-            // string FemaleMainName = "Mainie Protagonistia";
-            // string male = "boy";
-            // string female = "girl";
 
-            string CharacterName = "Main Protagonist";
-            
+            Start();
+        }
+
+        static void Start()
+        {
+
             Console.WriteLine("Welcome to the land of GameTitleHereia!");
+            Console.WriteLine("     --Press any Key to start--        ");
             Console.ReadKey();
-            Console.WriteLine("Tell me about yourself..");
+            Console.WriteLine("Tell me about yourself.. ");
+            Console.WriteLine("--press a key to tell me about yourself--");
             Console.ReadKey();
             Console.WriteLine("Like, whats your name? (Write your characters name)");
-            CharacterName = Console.ReadLine();
-            if (CharacterName == "")
+            currentPlayer.name = Console.ReadLine();
+            if (currentPlayer.name == "")
             {
-                Console.WriteLine(".. You there? You didn't type a name. For now we'll restart this game so you can try again");
-                CharacterName = Console.ReadLine();
-            }else{
-            Console.WriteLine("...");
-            Console.ReadLine();
-            Console.WriteLine(CharacterName+"?!" + " That's a very strange name!");
-            Console.WriteLine("You must me very special person! :D");
+                currentPlayer.name = "Blindy";
+                Console.WriteLine(
+                    "you don't remember huh? that's fine for now, I'l just call you Blindy for now");
+                Console.ReadKey();
+                Console.WriteLine("you don't really look like anyone I've ever seen before, " +
+                                  "you must be a special person! :D" +
+                                  "let me introduce myself");
+                Narraintro();
             }
+            else
+            {
+                Console.WriteLine("...");
+                Console.ReadLine();
+                Console.WriteLine(currentPlayer.name + "?!... That's a very strange name!");
+                Console.WriteLine("You must me very special person! :D");
+                Console.WriteLine("--click any key to confirm that you're a special person--");
+                Console.ReadKey();
+                Console.WriteLine("cool..");
+                Console.WriteLine("Let me introduce myself");
+                Narraintro();
+            }
+        }
 
+        private static void Narraintro()
+        {
+            
+            Console.WriteLine("--type 'y' to read introduction or -n- to skip");
+            Player.skip = Console.ReadLine();
+            if (Player.skip == "y")
+            {
+                Console.WriteLine("My name is Narra Tor!" +
+                                  "Which is a much more normal name in these parts I might add. " +
+                                  "I do wonder, with a specially unique name like yours, " +
+                                  "where are you even from?" +
+                                  "-- type place of birth--");
+                currentPlayer.origin = Console.ReadLine();
+                Console.WriteLine("gottcha! never heard of it (placeholder) but I'l remember it.");
+                Console.WriteLine(@"Now, I've got some good news and bad news for you," + currentPlayer.name + ".");
+                Console.ReadKey();
+                Console.WriteLine("The good news is that I'm here for you, and you can forever trust my guidance.");
+                Console.ReadKey();
+                Console.WriteLine(
+                    @"The bad news is that you've been cursed by a powerful spell, which has paralyzed your sight!" +
+                    "and uh...(placeholder inc)" +
+                    "I'm currently living in your brain!");
+                Console.ReadKey();
+                Console.WriteLine(@"But don't worry, I'm a good guide and I'm currently using your eyes for you." +
+                                  "so you're pretty much fully reliant upon my guidance" +
+                                  "I myself, is facing an issue, and that is, I literally have no agency!" +
+                                  "so here's the deal, I'l use your eyes FOR you, and you'll make all our choices." +
+                                  "We actually don't have much time.");
+                WhatThe();
+            }
+            else if (Player.skip == "n")
+            {
+                WhatThe();
+            }
+            else
+            {
+                Narraintro();
+            }
+        }
 
+        private static void WhatThe()
+        {
+            Console.WriteLine("We're currently in a cave of some sort" +
+                              "We have two paths to chose between." +
+                              "One to the left and one to the Right" +
+                              "--[L]eft--[R]ight--[E]xplore surroundings--[N]arra tor--");
+            Console.ReadLine();
         }
     }
 }
