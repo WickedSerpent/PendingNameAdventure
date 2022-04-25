@@ -9,7 +9,7 @@ namespace Time
          public int damage = 1;
          public int coins = 10;
          public int potion = 0;
-         public static string skip = "";
+         
 
          
 

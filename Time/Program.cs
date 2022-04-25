@@ -58,7 +58,7 @@ namespace Time
         private static void Narraintro()
         {
             
-            Console.WriteLine("--type 'y' to read introduction or -n- to skip");
+            Console.WriteLine("--do you wish to skip the introduction? /"+"y/"+"n");
             Player.skip = Console.ReadLine();
             if (Player.skip == "y")
             {
@@ -69,25 +69,25 @@ namespace Time
                                   "-- type place of birth--");
                 currentPlayer.origin = Console.ReadLine();
                 Console.WriteLine("gottcha! never heard of it (placeholder) but I'l remember it.");
-                Console.WriteLine(@"Now, I've got some good news and bad news for you," + currentPlayer.name + ".");
+                Console.WriteLine("Now, I've got some good news and bad news for you," + currentPlayer.name + ".");
                 Console.ReadKey();
-                Console.WriteLine("The good news is that I'm here for you, and you can forever trust my guidance.");
+                Console.WriteLine("The good news is that I'm here for you! and you can forever trust my guidance.");
                 Console.ReadKey();
                 Console.WriteLine(
-                    @"The bad news is that you've been cursed by a powerful spell, which has paralyzed your sight!" +
-                    "and uh...(placeholder inc)" +
+                    "The bad news is that you've been cursed by a powerful spell, which has paralyzed your sight!\n" +
+                    "and uh...(placeholder inc)\n" +
                     "I'm currently living in your brain!");
                 Console.ReadKey();
                 Console.WriteLine(@"But don't worry, I'm a good guide and I'm currently using your eyes for you." +
-                                  "so you're pretty much fully reliant upon my guidance" +
+                                  "so you're pretty much fully reliant upon my guidance.\n" +
                                   "I myself, is facing an issue, and that is, I literally have no agency!" +
                                   "so here's the deal, I'l use your eyes FOR you, and you'll make all our choices." +
-                                  "We actually don't have much time.");
-                WhatThe();
+                                  "We actually don't have much time. so I can't answer any questions at the moment.");
+                Choice1();
             }
             else if (Player.skip == "n")
             {
-                WhatThe();
+                Choice1();
             }
             else
             {
@@ -95,9 +95,10 @@ namespace Time
             }
         }
 
-        private static void WhatThe()
+        private static void Choice1()
         {
-            Console.WriteLine("We're currently in a cave of some sort" +
+            Console.Clear();
+            Console.WriteLine("We're currently in a cave of some sort." +
                               "We have two paths to chose between." +
                               "One to the left and one to the Right" +
                               "--[L]eft--[R]ight--[E]xplore surroundings--[N]arra tor--");
