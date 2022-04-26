@@ -2,9 +2,9 @@ namespace TheTypeOfTime
 {
     public class Player
     {
-         public string name = "Main Protagonist";
+         public string name = "";
          public string origin = "";
-         public string weapon = "";
+         public string equipped = "";
          public string location = "";
          public int health = 100;
          public int armor = 0;
