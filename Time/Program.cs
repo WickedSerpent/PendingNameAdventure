@@ -19,10 +19,10 @@ namespace TheTypeOfTime
 
         static void Main(string[] args)
         {
-
             NarraIntro.Start();
+            Tutorial.FirstCross();
         }
 
-
+        //fix input var pass på så den ikke går tilbake til firstcross explored!! er det en while der?
     }
 }

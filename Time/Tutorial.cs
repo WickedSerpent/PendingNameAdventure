@@ -25,7 +25,8 @@ namespace TheTypeOfTime
         public static void FirstCrossExplored()
         {
             Console.Clear();
-            Console.WriteLine("We have two paths to chose between.\n" +
+            Console.WriteLine("" +
+                              "We have two paths to chose between.\n" +
                               "One to the left and one to the Right\n" +
                               "--[L]eft--[R]ight--[N]arra Tor--\n");
             while (Console.ReadKey().Key == ConsoleKey.L)
@@ -51,6 +52,7 @@ namespace TheTypeOfTime
 
         public static void ExploreTutorial()
         {
+            Console.Clear();
             Console.WriteLine("You fumble around in pitch blackness, but you feel as if all of your instincts are partially controlled\n" +
                               "it's a strange feeling, it's like you can sense the presence of an object in front of you\n" +
                               "STOP!... Bend down here!\n");
@@ -71,7 +73,7 @@ namespace TheTypeOfTime
             FirstCrossExplored();
         }
         
-                private static void FirstCavern()
+        private static void FirstCavern()
         {
             
             Console.Clear();
@@ -82,17 +84,15 @@ namespace TheTypeOfTime
                               $"what do you want to do to the door?\n" +
                               $"--[O]pen--[B]reak Door--[T]urn around--\n");
             string input = Console.ReadLine();
-            if (input.ToLower() == "t" || input.ToLower() == "Turn" || input.ToLower() == "Turn around")
+            if (input != null && (input.ToLower() == "t" || input.ToLower() == "Turn" || input.ToLower() == "Turn around"))
             {
                 Tutorial.FirstCrossExplored();
             }
-
-            else if (input.ToLower() == "o" || input.ToLower() == "open" || input.ToLower() == "open door")
+            else if (input != null && (input.ToLower() == "o" || input.ToLower() == "open" || input.ToLower() == "open door"))
             {
                 Console.WriteLine("you opened the door without much fuzz\n");
             }
-
-            else if (input.ToLower() == "b" || input.ToLower() == "break" || input.ToLower() == "break door")
+            else if (input != null && (input.ToLower() == "b" || input.ToLower() == "break" || input.ToLower() == "break door"))
             {
                 Console.WriteLine("you kicked the door, attempting to break it...\n");
                 Console.ReadKey();
@@ -117,17 +117,17 @@ namespace TheTypeOfTime
                               "It seems to await for some response to it's question. What shall we do?\n" +
                               "*dialogue*\n" +
                               "--[A]ttempt answering the goblin \"question\"--[N]arra Tor--");
-            if (input.ToLower() == "a")
+            if(input != null && input.ToLower() == "a")
             {
                 Console.WriteLine("You don't know any Goblish, and stammer some unrecognizable gibberish.\n" +
                                   "This seems to offend the Goblin Hexer as it screetches out something whilst channeling a spell\n" +
                                   "[Goblin Hexer Summons a Fierce Rat!]\n");
             }
-            else if (input.ToLower() == "n")
-            {
+            else if (input != null && input.ToLower() == "n")
+            {   Console.Clear();
                 Console.WriteLine("--\"You [u]nderstand this thing?\"--\"why do you [d]escribe everything I do?\"--\"" +
                                   "[W]hat did it ask?\"--");
-                if (input.ToLower() == "U" || input.ToLower() == "understand")
+                if (input.ToLower() is "U" or "understand")
                 {
                     Console.WriteLine("Yes I do, do you want to translate it for you?");
                     Console.WriteLine("--\"well [Y]EAH! why do I even have to tell you to?!\"--");
@@ -145,32 +145,38 @@ namespace TheTypeOfTime
                                               " [ - 8 health ]");
                             Program.currentPlayer.health -= 8;
                             Console.WriteLine($"your current health is: {Program.currentPlayer.health}");
-                        }else if (input.ToLower() == "p")
+                        }
+                        else if (input.ToLower() == "p")
                         {
-                            Encounters.StagedCombat( "Fierce Rat", 8, 20);
+                            Encounters.FixedCombat("Fierce Rat", 8, 20);
                         }
                     }
                 }
-
-                else if (input.ToLower() == "d" || input.ToLower() == "describe")
-                {   Console.WriteLine("[Goblin Hexer Summons a Fierce Rat!]\n");
+                else if (input.ToLower() is "d" or "describe")
+                {
+                    Console.WriteLine("[Goblin Hexer Summons a Fierce Rat!]\n");
                     Console.WriteLine("That's what we Tors do, we describe stuff so our hosts... \n" +
                                       "I mean friends, know what choice to pick in different situations.\n" +
                                       "[The rat comes charging]");
-                    Encounters.StagedCombat("Fierce Rat", 8, 20);
+                    Encounters.FixedCombat("Fierce Rat", 8, 20);
                 }
-                else if  (input.ToLower() == "w" || input.ToLower() == "what")
+                else if (input.ToLower() is "w" or "what")
                 {
                     Console.WriteLine("It want's to know if you enjoy the parasite it planted in your brain.\n" +
-                                      "I would guess it's referring to me, then again, I have no agency so speculation is entirely on your part.\n" +
+                                      "I would guess it's referring to me, then again, I have no agency \n" +
+                                      "so speculation is entirely on your part.\n" +
                                       "The goblin seems impatient, as it starts to channel a spell\n" +
                                       "[Goblin Hexer Summons a Fierce Rat!]");
-                    Encounters.StagedCombat("Fierce Rat", 8, 20);
-
+                    Encounters.FixedCombat("Fierce Rat", 8, 20);
                 }
-                
             }
             
+        }
+
+        public static void SkipToFirstFight()
+        {
+            Console.WriteLine("the Goblin Hexer's Fierce Rat plunges as you!");
+            Encounters.FixedCombat("Fierce Rat", 8, 20);
         }
     }
     

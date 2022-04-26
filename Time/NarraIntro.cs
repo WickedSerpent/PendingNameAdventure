@@ -7,9 +7,14 @@ namespace TheTypeOfTime
         public static void Start()
         {
            
-            Console.WriteLine("Welcome to the land of GameTitleHereia!");
-            Console.WriteLine("     --Press any Key to start--        ");
-            Console.ReadKey();
+            Console.WriteLine("Welcome to the land of The Type of Time!");
+            Console.WriteLine("     --Press any Key to start--        \n" +
+                              "(or A to skip to first fight!)");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "a")
+            {
+                Tutorial.SkipToFirstFight();
+            }
             Console.Clear();
             Console.WriteLine("Tell me about yourself.. ");
             Console.WriteLine("--Enter--");
@@ -32,9 +37,9 @@ namespace TheTypeOfTime
             else
             {
                 Console.WriteLine("...");
-                Console.Clear();
                 Console.ReadLine();
-                Console.WriteLine(Program.currentPlayer.name + "?!... That's a very strange name!");
+                Console.Clear();
+                Console.WriteLine(""+Program.currentPlayer.name + "?!... That's a very strange name!");
                 Console.WriteLine("You must me very special person! :D");
                 Console.WriteLine("--press enter to confirm that you're a special person--");
                 Console.ReadKey();
@@ -42,7 +47,6 @@ namespace TheTypeOfTime
                 Console.WriteLine("cool..");
                 Console.ReadKey();
                 Console.Clear();
-                Console.WriteLine("Let me introduce myself");
                 NarraIntro();
             }
 
@@ -91,6 +95,7 @@ namespace TheTypeOfTime
                 {   
                     Console.WriteLine("We're currently in a cave of some sort.");
                 }
+                
 
             }
         }
