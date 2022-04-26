@@ -7,11 +7,15 @@
  * Double (double): a large number that can include a decimal
  */
 
-namespace Time
+namespace TheTypeOfTime
 {
+
+
     class Program
     {
         public static Player currentPlayer = new Player();
+        public static Interaction action = new Interaction();
+        public static Encounters encounter = new Encounters();
 
         static void Main(string[] args)
         {
@@ -59,8 +63,8 @@ namespace Time
         {
             
             Console.WriteLine("--do you wish to skip the introduction? /"+"y/"+"n");
-            Player.skip = Console.ReadLine();
-            if (Player.skip == "y")
+            action.Skip = Console.ReadLine();
+            if (action.Skip == "y")
             {
                 Console.WriteLine("My name is Narra Tor!" +
                                   "Which is a much more normal name in these parts I might add. " +
@@ -78,31 +82,23 @@ namespace Time
                     "and uh...(placeholder inc)\n" +
                     "I'm currently living in your brain!");
                 Console.ReadKey();
-                Console.WriteLine(@"But don't worry, I'm a good guide and I'm currently using your eyes for you." +
+                Console.WriteLine("But don't worry, I'm a good guide and I'm currently using your eyes for you.\n" +
                                   "so you're pretty much fully reliant upon my guidance.\n" +
-                                  "I myself, is facing an issue, and that is, I literally have no agency!" +
-                                  "so here's the deal, I'l use your eyes FOR you, and you'll make all our choices." +
-                                  "We actually don't have much time. so I can't answer any questions at the moment.");
-                Choice1();
+                                  "I myself, is facing an issue, and that is, I literally have no agency!\n" +
+                                  "so here's the deal, I'l use your eyes FOR you, and you'll make all our choices.\n" +
+                                  "We actually don't have much time. so I can't answer any questions at the moment.\n" +
+                                  "--type anything to continue--");
+                Console.WriteLine("We're currently in a cave of some sort.");
+                Tutorial.FirstCross();
             }
-            else if (Player.skip == "n")
+            else if (action.Skip == "n")
             {
-                Choice1();
+                Tutorial.FirstCross();
             }
             else
             {
                 Narraintro();
             }
-        }
-
-        private static void Choice1()
-        {
-            Console.Clear();
-            Console.WriteLine("We're currently in a cave of some sort." +
-                              "We have two paths to chose between." +
-                              "One to the left and one to the Right" +
-                              "--[L]eft--[R]ight--[E]xplore surroundings--[N]arra tor--");
-            Console.ReadLine();
         }
     }
 }

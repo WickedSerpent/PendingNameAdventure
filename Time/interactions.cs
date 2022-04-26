@@ -1,7 +1,7 @@
-namespace Time
+namespace TheTypeOfTime
 {
-    public class interactions
+    public class Interaction
     {
-        
+        public string Skip =  ""; 
     }
 }
