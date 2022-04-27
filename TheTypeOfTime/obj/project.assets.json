@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/wicked/RiderProjects/Adventure/Time/Time.csproj",
-      "projectName": "Time",
-      "projectPath": "/home/wicked/RiderProjects/Adventure/Time/Time.csproj",
+      "projectUniqueName": "/home/wicked/RiderProjects/Adventure/TheTypeOfTime/TheTypeOfTime.csproj",
+      "projectName": "TheTypeOfTime",
+      "projectPath": "/home/wicked/RiderProjects/Adventure/TheTypeOfTime/TheTypeOfTime.csproj",
       "packagesPath": "/home/wicked/.nuget/packages/",
-      "outputPath": "/home/wicked/RiderProjects/Adventure/Time/obj/",
+      "outputPath": "/home/wicked/RiderProjects/Adventure/TheTypeOfTime/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/wicked/.nuget/NuGet/NuGet.Config"

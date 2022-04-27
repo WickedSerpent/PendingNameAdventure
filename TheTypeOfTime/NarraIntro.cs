@@ -7,7 +7,7 @@ namespace TheTypeOfTime
         public static void Start()
         {
            
-            Console.WriteLine("Welcome to the land of The Type of Time!");
+            Console.WriteLine("Welcome to the land of The Type of TheTypeOfTime!");
             Console.WriteLine("     --Press any Key to start--        \n" +
                               "(or A to skip to first fight!)");
             string input = Console.ReadLine();
