@@ -14,6 +14,8 @@ namespace TheTypeOfTime
             if (input.ToLower() == "a")
             {
                 Tutorial.SkipToFirstFight();
+                return;
+
             }
             Console.Clear();
             Console.WriteLine("Tell me about yourself.. ");
@@ -52,6 +54,7 @@ namespace TheTypeOfTime
 
             static void NarraIntro()
             {
+                
                 if(Program.currentPlayer.name != "Nameless"){                
                     Console.WriteLine($"I do wonder, do you remember where you're from {Program.currentPlayer.name}? \n" +
                                       $"-- type place of birth--\n");
@@ -59,42 +62,44 @@ namespace TheTypeOfTime
                     Console.WriteLine($"gottcha! {Program.currentPlayer.name} of {Program.currentPlayer.origin} \n");
                 }
                 Console.WriteLine("--do you wish \"[H]ear\" my introduction? or \"[S]kip\"");
-                
-                while (Console.ReadKey().Key == ConsoleKey.H)
-                {   Console.Clear();
+                string input = Console.ReadLine();
+                if (input.ToLower() == "h" || input.ToLower() == "hear")
+                {   
                     Console.WriteLine("My name is Narra Tor!\n" +
                                       "Which is a much more normal name in these parts I might add.\n " +
-                                      "I'm part of an ancient race called Tor. We're quite descriptive" +
+                                      "I'm part of an ancient race called Tor. We're quite descriptive\n" +
                                       "and love to describe what we see when we see it. there are oddballs like\n" +
-                                      "Answer Tor, which loves answering questions. I don't know what I feel about him" +
+                                      "Answer Tor, which loves answering questions. I don't know what I feel about him\n" +
                                       "as the Tor's has no agency.\n" +
-                                      "Now I've got some good news and some bad news:");
-                    Console.Clear();
+                                      "Now I've got some good news and some bad news:\n" +
+                                      "\n");
                     Console.ReadKey();
                     Console.WriteLine(
-                        "The good news is that I'm here for you! and you can forever trust my guidance, completely.");
+                        "The good news is that I'm here for you! and you can forever trust my guidance, completely." +
+                        "\n");
                     Console.ReadKey();
                     Console.WriteLine(
                         "The bad news is that you've been cursed by a powerful spell, which has paralyzed your sight!\n" +
                         "and uh...(placeholder inc)\n" +
                         "Also, I'm currently living in your brain! but that' neither here nor there\n" +
-                        "--press space--\n");
-                    Console.Clear();
+                        "\n");
                     Console.ReadKey();
                     Console.WriteLine("But don't worry, I'm a good guide and I'm currently using your eyes for you.\n" +
-                                      "so you're pretty much fully reliant upon my guidance.\n" +
-                                      "I myself, is facing an issue, and that is, I literally have no agency!\n" +
+                                      "so you're pretty much fully reliant upon my guidance.\n");
+                    Console.ReadKey();
+                    Console.WriteLine("I myself, is facing an issue, and that is, I literally have no agency!\n" +
                                       "so here's the deal, I'l use your eyes FOR you, and you'll make all our choices.\n" +
                                       "We actually don't have much time. so I can't answer any questions at the moment.\n" +
                                       "--press space--\n");
-                    Console.Clear();
-                    Console.WriteLine("We're currently in a cave of some sort.");
+                    Console.WriteLine("We're currently in a cave of some sort." +
+                                      "\n");
                     
                 }
-                while (Console.ReadKey().Key == ConsoleKey.S)
+                else if (input.ToLower() == "s" || input.ToLower() == "skip")
                 {   
-                    Console.WriteLine("We're currently in a cave of some sort.");
+                    Console.WriteLine("We're currently in a cave of some sort.\n");
                 }
+                Tutorial.FirstCross();
                 
 
             }

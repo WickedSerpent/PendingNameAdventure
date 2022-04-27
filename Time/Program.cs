@@ -16,13 +16,15 @@ namespace TheTypeOfTime
         public static Player currentPlayer = new Player();
         public static Interaction action = new Interaction();
         public static Encounters encounter = new Encounters();
+        public static Locations Locations = new Locations();
 
         static void Main(string[] args)
         {
             NarraIntro.Start();
-            Tutorial.FirstCross();
+            Locations.Village.LoadTown();
+            
         }
 
-        //fix input var pass på så den ikke går tilbake til firstcross explored!! er det en while der?
+        //fix input var pass på så den ikke går tilbake til firstcross explored!! er det en while der? fix også fight format før visning!
     }
 }

@@ -2,8 +2,8 @@ namespace TheTypeOfTime
 {
     public class Player
     {
-         public string name = "";
-         public string origin = "";
+         public string name = "Nameless";
+         public string origin = "Nowhere";
          public string equipped = "";
          public string location = "";
          public int health = 100;
@@ -12,9 +12,11 @@ namespace TheTypeOfTime
 
          public int coins = 0;
          public int potion = 0;
+         public int food = 0;
          
          public int exp = 0;
          public int strength = 1;
          public int intelligence = 1;
+         
     }
 }

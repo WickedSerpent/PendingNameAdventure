@@ -1,50 +1,64 @@
 using System;
 
+
+
 namespace TheTypeOfTime
 {
     public class Encounters
     {
+        static Random ran = new Random();
         private static string weapon = Program.currentPlayer.equipped;
         private static int health = Program.currentPlayer.health;
         private static int damage = Program.currentPlayer.damage;
         private static int potion = Program.currentPlayer.potion;
         private static int armor = Program.currentPlayer.armor;
-        private int coins = Program.currentPlayer.coins;
+        private static int coins = Program.currentPlayer.coins;
         
         public static void FixedCombat(string name, int power, int hp)
-        {
+        {   
+            Console.Clear();
             string n = "";
             int p = 0;
             int h = 0;
             int DCtotal = 0;
-            int enemyDamage = p - Program.currentPlayer.armor;
+            
+
 
             // enemy parameters 
             n = name;
             p = power;
             h = hp;
 
+            //loot
+            int minC = hp / 6;
+            int maxC = hp / 3;
+            int rc = coins + ran.Next(minC,maxC);
+            
             while (h > 0 && health > 0)
-            {   Console.WriteLine($"{n}: hp: {h} power: {p}");
-                Console.WriteLine($"|Health: {health} [P]ot: {potion} |" +
-                                  $"|*********************************|" +
-                                  $"|[A]ttack        [S]pecial Attack |" +
-                                  $"|[D]efend  | [F]lee  |  [C]ounter |" +
-                                  $"|*********************************|");
+            {  
+                int e = p - armor;
+                Console.WriteLine($"{n}: hp: {h} power: {p} {n}'s damage: {e}");
+                Console.WriteLine($"|Health: {health} [P]ot: {potion} |\n" +
+                                  $"|*********************************|\n" +
+                                  $"|[A]ttack        [S]pecial Attack |\n" +
+                                  $"|[D]efend  | [F]lee  |  [C]ounter |\n" +
+                                  $"|*********************************|\n");
                 string input = Console.ReadLine();
                 if (input.ToLower() == "a" || input.ToLower() == "attack")
                 {
                     /*Player attack first, enemy next standard values*/
                     h -= damage;
-                    while (h > 0)
+                    if (h > 0)
                     {
                         Console.WriteLine($"You attacked with your {weapon} and did {damage} damage!");
-                        Console.WriteLine($"The {n} attacked you back, dealing {enemyDamage} damage!");
-                        health -= enemyDamage;
+                        Console.WriteLine($"The {n} attacked you back, dealing {e} damage!");
+                        health -= e;
                         Console.WriteLine($"the {n} has {h} health left, whilst you have {health}");
                     }
-
-                    Console.WriteLine($"You finished off the {n} with your {weapon}!");
+                    else
+                    {
+                        Console.WriteLine($"You finished off the {n} with your {weapon}!");
+                    }
                 }
                 else if (input.ToLower() == "d" || input.ToLower() == "defend")
                 {
@@ -70,13 +84,14 @@ namespace TheTypeOfTime
                     {
                         Console.WriteLine(
                             $"You've dealt DOUBLE damage with your {weapon} whilst ignoring {n}'s attack!");
-
+                        h -= (damage * 2);
+                        DCtotal -= 2;
                     }
                     else
                     {
                         Console.WriteLine("you need to defend/countered twice for this to work!" +
                                           $" {n} hit you for {p} damage!");
-                        health -= enemyDamage;
+                        health -= e;
                     }
 
                 }
@@ -91,7 +106,7 @@ namespace TheTypeOfTime
                 }
                 else if (input.ToLower() == "p" || input.ToLower() == "potion")
                 {
-                    if (potion ! > 0)
+                    if (potion <= 0)
                     {
                         Console.WriteLine("nope, you're all out!");
                     }
@@ -106,9 +121,9 @@ namespace TheTypeOfTime
                         }
                     }
                 }
-
-
             }
+            Console.WriteLine($"You brutally murdered the {n}! and got {rc}coins!");
+            Console.ReadKey();
 
         }
 
